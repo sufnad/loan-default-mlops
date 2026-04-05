@@ -1,0 +1,11 @@
+pandas
+numpy
+scikit-learn
+lightgbm
+mlflow
+streamlit
+matplotlib
+seaborn
+joblib
+jupyter
+nbformat

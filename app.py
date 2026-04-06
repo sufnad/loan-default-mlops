@@ -1,19 +1,16 @@
 """
-Loan Default Prediction — Streamlit App
+Loan Default Prediction - Streamlit App
 Standalone application: no local imports required.
 """
 import streamlit as st
 import pandas as pd
-
 import joblib
 import os
 
 MODEL_DIR = "models/"
 
 
-# ── Load best model ──
 @st.cache_resource
-
 def load_model():
     best_model_path = os.path.join(MODEL_DIR, "best_model.txt")
     with open(best_model_path, "r") as f:
@@ -25,12 +22,12 @@ def load_model():
 
 model, scaler, active_model = load_model()
 
-# ── Page config ──
+# Page config
 st.set_page_config(page_title="Loan Default Predictor", page_icon="🏦", layout="centered")
 st.title("🏦 Loan Default Risk Predictor")
 st.markdown("Enter customer details below to estimate the probability of loan default.")
 
-# ── Sidebar inputs ──
+# Sidebar inputs
 st.sidebar.header("Customer Features")
 
 credit_lines = st.sidebar.slider(
@@ -52,7 +49,7 @@ fico_score = st.sidebar.slider(
     "FICO Score", min_value=300, max_value=850, value=680, step=5
 )
 
-# ── Predict ──
+# Predict
 if st.button("🔍 Predict Default Risk"):
     input_df = pd.DataFrame([{
         "credit_lines_outstanding": credit_lines,
@@ -88,4 +85,3 @@ if st.button("🔍 Predict Default Risk"):
 
     st.progress(min(probability, 1.0))
     st.caption(f"Active model: **{active_model}**")
-

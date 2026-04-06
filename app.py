@@ -88,3 +88,4 @@ if st.button("🔍 Predict Default Risk"):
 
     st.progress(min(probability, 1.0))
     st.caption(f"Active model: **{active_model}**")
+

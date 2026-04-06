@@ -92,3 +92,4 @@ az ad sp create-for-rbac --name "github-actions-sp" \
 ```
 
 Copy the JSON output of the last command into the `AZURE_CREDENTIALS` secret.
+ 

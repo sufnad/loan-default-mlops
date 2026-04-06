@@ -4,15 +4,16 @@ Standalone application: no local imports required.
 """
 import streamlit as st
 import pandas as pd
-import numpy as np
+
 import joblib
 import os
 
-# ── Paths ──
 MODEL_DIR = "models/"
+
 
 # ── Load best model ──
 @st.cache_resource
+
 def load_model():
     best_model_path = os.path.join(MODEL_DIR, "best_model.txt")
     with open(best_model_path, "r") as f:
